@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+
+#判断不是自身路径
+ROOT_DIR=`which make-project 2>/dev/null`
+if [ -z $ROOT_DIR ];then
+	echo -e "\033[36;1m系统路径中找不到make-project\033[0m"
+	exit 1
+fi
+
+ROOT_DIR=${ROOT_DIR%/*}
+CUR_DIR=`pwd`
+
+
+if [ "n${CUR_DIR}" = "n${ROOT_DIR}" ]; then
+	echo -e "\033[36;1m不能在脚本目录下进行该操作\033[0m"
+	exit 1
+fi
+
+if [ "a$1" = "a-h" -o "a$1" = "a--help" ];then
+	echo -e "\033[34;1mmake-project [项目名称]\033[0m"
+	echo -e "\033[34;1m如果不输入项目名称，那么需要自己手动替换\${PROJ_NAME}标识\033[0m"	
+	exit 0
+fi
+
+
+cp -a ${ROOT_DIR}/* ${CUR_DIR}
+rm ${CUR_DIR}/gen-project
+mv ${CUR_DIR}/xxx.cfg ${CUR_DIR}/$1.cfg
+
+FILE_LISTS="CMakeLists.txt Doxyfile src/CMakeLists.txt tools/restart.sh"
+
+for file in $FILE_LISTS
+do
+	sed "s/\${PROJ_NAME}/$1/g" ${ROOT_DIR}/$file > ${CUR_DIR}/$file
+done

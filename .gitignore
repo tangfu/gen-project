@@ -10,3 +10,7 @@
 *.lai
 *.la
 *.a
+
+
+# bake file
+*~
