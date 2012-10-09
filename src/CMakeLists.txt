@@ -24,7 +24,7 @@ ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
 	PRE_BUILD
 	COMMENT "[ astyle code ]"
 	COMMAND [ -z `which astyle 2>/dev/null` -o ! -f ~/.astylerc ] ||
-	astyle src/*.cpp src/*.h
+	astyle src/*.cpp src/*.h 2>/dev/null 1>&2
 	WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 	#VERBATIM
 	)
