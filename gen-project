@@ -4,7 +4,7 @@
 #判断不是自身路径
 ROOT_DIR=`which make-project 2>/dev/null`
 if [ -z $ROOT_DIR ];then
-	echo -e "\033[36;1m系统路径中找不到make-project\033[0m"
+	echo -e "\033[36;1m系统路径中找不到gen-project\033[0m"
 	exit 1
 fi
 
