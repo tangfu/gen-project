@@ -2,7 +2,7 @@
 #
 
 #判断不是自身路径
-ROOT_DIR=`which make-project 2>/dev/null`
+ROOT_DIR=`which gen-project 2>/dev/null`
 if [ -z $ROOT_DIR ];then
 	echo -e "\033[36;1m系统路径中找不到gen-project\033[0m"
 	exit 1
@@ -18,7 +18,7 @@ if [ "n${CUR_DIR}" = "n${ROOT_DIR}" ]; then
 fi
 
 if [ "a$1" = "a-h" -o "a$1" = "a--help" ];then
-	echo -e "\033[34;1mmake-project [项目名称]\033[0m"
+	echo -e "\033[34;1mgen-project [项目名称]\033[0m"
 	echo -e "\033[34;1m如果不输入项目名称，那么需要自己手动替换\${PROJ_NAME}标识\033[0m"	
 	exit 0
 fi
@@ -27,6 +27,12 @@ fi
 cp -a ${ROOT_DIR}/* ${CUR_DIR}
 rm ${CUR_DIR}/gen-project
 mv ${CUR_DIR}/xxx.conf ${CUR_DIR}/$1.conf
+cat<< END >>${CUR_DIR}/$1.conf
+"app" = "$1";
+"version" = "1.0.0";
+"author" = "`whoami`";
+
+END
 
 FILE_LISTS="CMakeLists.txt Doxyfile src/CMakeLists.txt tools/restart.sh"
 
