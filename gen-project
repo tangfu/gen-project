@@ -24,8 +24,7 @@ if [ "a$1" = "a-h" -o "a$1" = "a--help" ];then
 fi
 
 
-cp -a ${ROOT_DIR}/* ${CUR_DIR}
-rm ${CUR_DIR}/gen-project
+cp -a ${ROOT_DIR}/{build,CMakeLists.txt,doc,Doxyfile,README.TXT,src,test,tools,xxx.conf} ${CUR_DIR}
 mv ${CUR_DIR}/xxx.conf ${CUR_DIR}/$1.conf
 cat<< END >>${CUR_DIR}/$1.conf
 "app" = "$1";
