@@ -23,11 +23,16 @@ if [ "a$1" = "a-h" -o "a$1" = "a--help" ];then
 	exit 0
 fi
 
+if [ "a$1" = "a" ];then
+	PNAME=`basename ${CUR_DIR}`
+else
+	PNAME=$1
+fi
 
 cp -a ${ROOT_DIR}/{build,CMakeLists.txt,doc,Doxyfile,README.TXT,src,test,tools,xxx.conf} ${CUR_DIR}
-mv ${CUR_DIR}/xxx.conf ${CUR_DIR}/$1.conf
-cat<< END >>${CUR_DIR}/$1.conf
-app = "$1";
+mv ${CUR_DIR}/xxx.conf ${CUR_DIR}/${PNAME}.conf
+cat<< END >>${CUR_DIR}/${PNAME}.conf
+app = "${PNAME}";
 version = "1.0.0";
 author = "`whoami`";
 
@@ -37,5 +42,5 @@ FILE_LISTS="CMakeLists.txt Doxyfile src/CMakeLists.txt tools/restart.sh"
 
 for file in $FILE_LISTS
 do
-	sed "s/\${PROJ_NAME}/$1/g" ${ROOT_DIR}/$file > ${CUR_DIR}/$file
+	sed "s/\${PROJ_NAME}/${PNAME}/g" ${ROOT_DIR}/$file > ${CUR_DIR}/$file
 done
