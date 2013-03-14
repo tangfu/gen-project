@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 
 IF( NOT CMAKE_BUILD_TYPE )    
-	SET(CMAKE_BUILD_TYPE Debug)
+	SET(CMAKE_BUILD_TYPE Release)
 ENDIF()
 MESSAGE(STATUS "Build type - " ${CMAKE_BUILD_TYPE})
 
@@ -13,7 +13,7 @@ IF ( ${CMAKE_BUILD_TYPE} STREQUAL Debug )
 	add_definitions("-g -O0 -Wall -Wextra -fprofile-arcs -ftest-coverage")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp gcov)
 ELSE()	
-	add_definitions("-g -O2 -Wall -Wextra")
+	add_definitions("-g -O2 -Wall")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp)
 ENDIF()
 
