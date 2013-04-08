@@ -33,7 +33,8 @@ cp -a ${ROOT_DIR}/{build,CMakeLists.txt,doc,Doxyfile,README.TXT,src,test,tools,x
 mv ${CUR_DIR}/xxx.conf ${CUR_DIR}/${PNAME}.conf
 cat<< END >>${CUR_DIR}/${PNAME}.conf
 app = "${PNAME}";
-version = "1.0.0";
+#这里只保存到2级版本号，这样对于修订版本号的更新通常就不必改配置文件
+version = "1.0";
 author = "`whoami`";
 
 END
