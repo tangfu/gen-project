@@ -39,7 +39,7 @@ author = "`whoami`";
 
 END
 
-FILE_LISTS="CMakeLists.txt Doxyfile src/CMakeLists.txt tools/restart.sh"
+FILE_LISTS="CMakeLists.txt README.TXT Doxyfile src/CMakeLists.txt tools/restart.sh"
 
 for file in $FILE_LISTS
 do
