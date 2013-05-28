@@ -6,5 +6,6 @@ BASE_PATH=$(dirname `which $0`)
 cd ${BASE_PATH}
 
 sleep 1
+ulimit -c unlimited
 ../bin/${PROJ_NAME} -conf=../conf/${PROJ_NAME}.conf -log_dir=../log -daemon=true -logbufsecs=0 -stderrthreshold=3
 
