@@ -34,12 +34,11 @@ ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
 	WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 	#VERBATIM
 	)
-
+	
 ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
-	POST_BUILD
-	COMMENT "[ generate sha1 file ]"
-	COMMAND rm -f sha1sum.* 2>/dev/null
-	COMMAND [ -z `which sha1sum 2>/dev/null` ] || [ -z `which touch 2>/dev/null` ] || touch sha1sum.`sha1sum src/${PROJ_NAME}`
-	WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
-	#VERBATIM
-	)
+    POST_BUILD
+    COMMENT "[ cppcheck ]"
+    COMMAND [ -z `which cppcheck 2>/dev/null` ] || cppcheck -f -j 4 --enable=all src 1>/dev/null                                                         
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+    #VERBATIM
+    )
