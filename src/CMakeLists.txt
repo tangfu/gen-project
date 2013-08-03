@@ -42,3 +42,11 @@ ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
     #VERBATIM
     )
+
+#ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
+#   PRE_BUILD
+#   COMMENT "[ rebuild protobuf ]"
+#   COMMAND [ -z `which protoc 2>/dev/null` ] || make
+#   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/src/proto
+#   #VERBATIM
+#   )
