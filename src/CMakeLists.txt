@@ -10,10 +10,10 @@ MESSAGE(STATUS "Build type - " ${CMAKE_BUILD_TYPE})
 add_executable(${PROJ_NAME} main.cpp)
 
 IF ( ${CMAKE_BUILD_TYPE} STREQUAL Debug )	
-	add_definitions("-g -O0 -Wall -Wextra -fprofile-arcs -ftest-coverage")
+	add_definitions("-g -O0 -Wall -std=c++0x -Wextra -fprofile-arcs -ftest-coverage")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp gcov)
 ELSE()	
-	add_definitions("-g -O2 -Wall")
+	add_definitions("-g -O2 -Wall -std=c++0x")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp)
 ENDIF()
 
