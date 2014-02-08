@@ -50,3 +50,7 @@ ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
 #   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/src/proto
 #   #VERBATIM
 #   )
+
+ADD_CUSTOM_TARGET(uninstall                                                                                                        
+    COMMAND xargs rm < ${PROJECT_BINARY_DIR}/install_manifest.txt
+    )
