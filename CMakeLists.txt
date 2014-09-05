@@ -4,7 +4,16 @@ IF("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
     MESSAGE(FATAL_ERROR "in-source builds are not allowed. ${CMAKE_SOURCE_DIR}")
 ENDIF()
 
-#SET(PROJ_NAME xxx)
+#FIND_PROGRAM(FOUND_CCACHE NAMES ccache)                                                                                                                      
+#MESSAGE(STATUS "ccache=${FOUND_CCACHE}")                                                                                                                     
+IF ( FOUND_CCACHE )                                                                                                                                           
+    MESSAGE(STATUS "use ccache")                                                                                                                              
+    SET(CMAKE_C_COMPILER "ccache")                                                                                                                            
+    SET(CMAKE_C_COMPILER_ARG1 "gcc")                                                                                                                          
+    SET(CMAKE_CXX_COMPILER "ccache")                                                                                                                          
+    SET(CMAKE_CXX_COMPILER_ARG1 "g++")                                                                                                                        
+ENDIF()
+
 PROJECT(${PROJ_NAME})
 
 FIND_PACKAGE(xxxx REQUIRED)

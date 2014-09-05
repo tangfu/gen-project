@@ -42,7 +42,13 @@ ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
     #VERBATIM
     )
-
+#ADD_CUSTOM_COMMAND(                                                                                                                                          
+#    OUTPUT "protocol/test1.pb.cc" "protocol/pb_test2.pb.cc"                                                                                                  
+#    COMMENT "[ rebuild protobuf ]"                                                                                                                           
+#    COMMAND protoc --cpp_out=. *.proto                                                                                                                       
+#    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/src/protocol                                                                                                     
+#    DEPENDS "protocol/pb_test1.proto" "protocol/pb_test2.proto"                                                                                              
+#    )
 #ADD_CUSTOM_COMMAND(TARGET ${PROJ_NAME}
 #   PRE_BUILD
 #   COMMENT "[ rebuild protobuf ]"
