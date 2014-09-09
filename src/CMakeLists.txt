@@ -1,5 +1,14 @@
 cmake_minimum_required(VERSION 2.8)
 
+#SET(protoc_cmd "protoc")                                                                                                                                     
+#SET(protoc_arg1 "--cpp_out=.")                                                                                                                               
+#SET(protoc_1_arg2 "xx1.proto")                                                                                                                               
+#SET(protoc_2_arg2 "xx2.proto")                                                                                                                               
+#execute_process(                                                                                                                                             
+#    COMMAND ${protoc_cmd} ${protoc_arg1} ${protoc_1_arg2}                                                                                                    
+#    COMMAND ${protoc_cmd} ${protoc_arg1} ${protoc_2_arg2}                                                                                                    
+#    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/src/protocol                                                                                                     
+#    ) 
 
 IF( NOT CMAKE_BUILD_TYPE )    
 	SET(CMAKE_BUILD_TYPE Release)
