@@ -17,6 +17,7 @@ MESSAGE(STATUS "Build type - " ${CMAKE_BUILD_TYPE})
 
 #FIND_PACKAGE(Protobuf REQUIRED)                                                                                       
 #PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS protocol/*.proto)
+#include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(${PROJ_NAME} main.cpp)
 
