@@ -15,6 +15,8 @@ IF( NOT CMAKE_BUILD_TYPE )
 ENDIF()
 MESSAGE(STATUS "Build type - " ${CMAKE_BUILD_TYPE})
 
+#FIND_PACKAGE(Protobuf REQUIRED)                                                                                       
+#PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS protocol/*.proto)
 
 add_executable(${PROJ_NAME} main.cpp)
 
