@@ -16,6 +16,8 @@ ENDIF()
 
 PROJECT(${PROJ_NAME})
 
+SET(FRAMEWORK_ADDR yyyy)                                                                            
+FIND_PACKAGE(xxxx REQUIRED HINTS ${FRAMEWORK_ADDR} NO_DEFAULT_PATH) 
 FIND_PACKAGE(xxxx REQUIRED)
 
 ADD_SUBDIRECTORY(src)
