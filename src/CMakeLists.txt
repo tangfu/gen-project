@@ -19,6 +19,9 @@ MESSAGE(STATUS "Build type - " ${CMAKE_BUILD_TYPE})
 #PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS protocol/*.proto)
 #include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+#add_library(${PROJ_LIB_NAME} STATIC xx.cpp)                                                                                    
+#set_target_properties(${PROJ_LIB_NAME} PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+
 add_executable(${PROJ_NAME} main.cpp)
 
 IF ( ${CMAKE_BUILD_TYPE} STREQUAL Debug )	
