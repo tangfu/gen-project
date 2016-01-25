@@ -24,11 +24,17 @@ MESSAGE(STATUS "Build type - " ${CMAKE_BUILD_TYPE})
 
 add_executable(${PROJ_NAME} main.cpp)
 
+if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.8)
+    set(std_info "c++0x")
+else ()
+    set(std_info "c++11")
+endif ()
+
 IF ( ${CMAKE_BUILD_TYPE} STREQUAL Debug )	
-	add_definitions("-g -O0 -Wall -std=c++0x -Wextra -fprofile-arcs -ftest-coverage")
+	add_definitions("-g -O0 -Wall -std=${std_info} -Wextra -fprofile-arcs -ftest-coverage")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp gcov)
 ELSE()	
-	add_definitions("-g -O2 -Wall -std=c++0x")
+	add_definitions("-g -O2 -Wall -std=${std_info}")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp)
 ENDIF()
 
