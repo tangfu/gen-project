@@ -5,34 +5,13 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 message("Build type - " ${CMAKE_BUILD_TYPE})
 
-<<<<<<< HEAD
 #find_package(Protobuf REQUIRED)
 #protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTOCOL}/msg_mask.proto)
 #get_filename_component(PB_DIR ${PROTO_HDRS} PATH)
 #include_directories(${PB_DIR})
-=======
-#SET(protoc_cmd "protoc")                                                                                                                                     
-#SET(protoc_arg1 "--cpp_out=.")                                                                                                                               
-#SET(protoc_1_arg2 "xx1.proto")                                                                                                                               
-#SET(protoc_2_arg2 "xx2.proto")                                                                                                                               
-#execute_process(                                                                                                                                             
-#    COMMAND ${protoc_cmd} ${protoc_arg1} ${protoc_1_arg2}                                                                                                    
-#    COMMAND ${protoc_cmd} ${protoc_arg1} ${protoc_2_arg2}                                                                                                    
-#    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/src/protocol                                                                                                     
-#    ) 
 
-IF( NOT CMAKE_BUILD_TYPE )    
-	SET(CMAKE_BUILD_TYPE Release)
-ENDIF()
-MESSAGE(STATUS "Build type - " ${CMAKE_BUILD_TYPE})
-
-#FIND_PACKAGE(Protobuf REQUIRED)                                                                                       
-#PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS protocol/*.proto)
-#include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
-#add_library(${PROJ_LIB_NAME} STATIC xx.cpp)                                                                                    
+#add_library(${PROJ_LIB_NAME} STATIC xx.cpp)
 #set_target_properties(${PROJ_LIB_NAME} PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
->>>>>>> origin/master
 
 add_executable(${PROJ_NAME} main.cpp)
 
@@ -42,17 +21,10 @@ else ()
     set(std_info "c++11")
 endif ()
 
-<<<<<<< HEAD
 if ( ${CMAKE_BUILD_TYPE} STREQUAL Debug )
 	add_definitions("-g -O0 -Wall -std=${std_info} -Wextra -fprofile-arcs -ftest-coverage")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp gcov)
 else ()
-=======
-IF ( ${CMAKE_BUILD_TYPE} STREQUAL Debug )	
-	add_definitions("-g -O0 -Wall -std=${std_info} -Wextra -fprofile-arcs -ftest-coverage")
-	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp gcov)
-ELSE()	
->>>>>>> origin/master
 	add_definitions("-g -O2 -Wall -std=${std_info}")
 	target_link_libraries(${PROJ_NAME} gflags glog event jsoncpp)
 endif ()
